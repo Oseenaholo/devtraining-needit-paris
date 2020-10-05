@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?><database>
+    <element audit="true" label="NeedIt" max_length="40" name="x_58872_needit_needit" sizeclass="2" type="collection">
+        <element label="New field 1" max_length="40" name="new_field_1" type="integer"/>
+        <element label="New field 2" max_length="40" name="new_field_2" type="integer"/>
+        <element attributes="ignore_filter_on_new=true" default="javascript:global.getNextObjNumberPadded();" label="Number" max_length="40" name="number" type="string"/>
+        <element attributes="edge_encryption_enabled=true" label="Short description" max_length="40" name="short_description" type="string"/>
+        <element attributes="edge_encryption_enabled=true" choice="1" label="State" max_length="40" name="state" type="string">
+            <choice>
+                <element inactive_on_update="false" label="Open" sequence="0" value="Open"/>
+                <element inactive_on_update="false" label="Close" sequence="1" value="Close"/>
+            </choice>
+        </element>
+        <element attributes="edge_encryption_enabled=true" choice="1" label="Request type" mandatory="true" max_length="40" name="u_choice_2" type="string">
+            <choice>
+                <element inactive_on_update="false" label="Legal" sequence="0" value="legal"/>
+                <element inactive_on_update="false" label="IT" sequence="1" value="it"/>
+                <element inactive_on_update="false" label="HR" sequence="2" value="hr"/>
+            </choice>
+        </element>
+        <element attributes="edge_encryption_enabled=true" choice="1" dependent="u_choice_2" dependent_on_field="u_choice_2" label="What needed" mandatory="true" max_length="40" name="u_choice_4" type="string" use_dependent_field="true">
+            <choice>
+                <element dependent_value="legal" inactive_on_update="false" label="Legal 1" sequence="0" value="Legal 1"/>
+                <element dependent_value="hr" inactive_on_update="false" label="Payroll" sequence="0" value="Payroll"/>
+                <element dependent_value="it" inactive_on_update="false" label="Service request" sequence="0" value="Service request"/>
+                <element dependent_value="it" inactive_on_update="false" label="Incident" sequence="1" value="Incident"/>
+                <element dependent_value="legal" inactive_on_update="false" label="Legal 2" sequence="1" value="Legal 2"/>
+                <element dependent_value="hr" inactive_on_update="false" label="Tax" sequence="1" value="Tax"/>
+                <element dependent_value="legal" inactive_on_update="false" label="Legal 3" sequence="2" value="Legal 3"/>
+                <element dependent_value="it" inactive_on_update="false" label="Problem" sequence="2" value="Problem"/>
+                <element dependent_value="hr" inactive_on_update="false" label="UIN" sequence="2" value="UIN"/>
+            </choice>
+        </element>
+        <element attributes="edge_encryption_enabled=true" choice="1" label="Priority" max_length="40" name="u_choice_6" type="string">
+            <choice>
+                <element inactive_on_update="false" label="4 - Low" sequence="0" value="4 - low"/>
+                <element inactive_on_update="false" label="3 - Medium" sequence="1" value="3 - medium"/>
+                <element inactive_on_update="false" label="1 - High" sequence="2" value="1 - high"/>
+            </choice>
+        </element>
+        <element attributes="edge_encryption_enabled=true" label="When needed" mandatory="true" max_length="40" name="u_glide_date_time_1" type="glide_date_time"/>
+        <element attributes="encode_utf8=false" label="Requested for" mandatory="true" max_length="32" name="u_reference_1" reference="sys_user" type="reference"/>
+        <element attributes="edge_encryption_enabled=true" label="Description" max_length="40" name="u_string_3" type="string"/>
+        <element attributes="edge_encryption_enabled=true" label="Work notes" max_length="2000" name="u_string_5" type="string"/>
+        <index name="index">
+            <element name="u_reference_1"/>
+        </index>
+    </element>
+</database>
